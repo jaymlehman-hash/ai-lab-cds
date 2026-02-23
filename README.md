@@ -1,8 +1,8 @@
-# \# Studying How Large Language Models Reframe Disease Risk in Lab Result Explanations
+## Studying How Large Language Models Reframe Disease Risk in Lab Result Explanations
 
 # 
 
-# \## Overview
+### Overview
 
 # 
 
@@ -14,7 +14,7 @@
 
 # 
 
-# \*\*Do LLM‑generated explanations subtly broaden or reframe associations with comorbid conditions compared to traditional rule‑based clinical decision support?\*\*
+#*\*Do LLM‑generated explanations subtly broaden or reframe associations with comorbid conditions compared to traditional rule‑based clinical decision support?\*\*
 
 # 
 
@@ -26,7 +26,7 @@
 
 # 
 
-# \## Why This Matters
+### Why This Matters
 
 # 
 
@@ -34,13 +34,13 @@
 
 # 
 
-# \- framing affects clinical interpretation  
+#- framing affects clinical interpretation  
 
-# \- narrative drift becomes a system behavior  
+#- narrative drift becomes a system behavior  
 
-# \- LLM outputs become part of the safety surface  
+#- LLM outputs become part of the safety surface  
 
-# \- DevOps teams must monitor not just accuracy, but \*language\*  
+#- DevOps teams must monitor not just accuracy, but*language\*  
 
 # 
 
@@ -58,7 +58,7 @@
 
 # 
 
-# \## Research Questions
+### Research Questions
 
 # 
 
@@ -66,21 +66,21 @@
 
 # 
 
-# \- \*\*breadth of associated conditions\*\*  
+#-*\*breadth of associated conditions\*\*  
 
-# \- \*\*strength of associative or causal language\*\*  
+#-*\*strength of associative or causal language\*\*  
 
-# \- \*\*certainty framing\*\*  
+#-*\*certainty framing\*\*  
 
-# \- \*\*implied clinical significance\*\*  
+#-*\*implied clinical significance\*\*  
 
-# \- \*\*narrative expansion beyond guideline‑encoded rules\*\*
+#-*\*narrative expansion beyond guideline‑encoded rules\*\*
 
 # 
 
-# This work does \*not\* evaluate clinical correctness or provide medical advice.  
+# This work does*not\* evaluate clinical correctness or provide medical advice.  
 
-# It evaluates \*\*framing behavior\*\*.
+# It evaluates*\*framing behavior\*\*.
 
 # 
 
@@ -88,59 +88,59 @@
 
 # 
 
-# \## Methodology
+### Methodology
 
 # 
 
-# \### 1. Labs‑Only Scenarios
+#### 1. Labs‑Only Scenarios
 
 # Each experiment uses a single abnormal lab value (e.g., elevated uric acid) with no additional clinical context.
 
 # 
 
-# \### 2. Two Explanation Sources
+#### 2. Two Explanation Sources
 
-# \- \*\*Rule‑based CDS\*\*: deterministic, threshold‑based logic  
+#-*\*Rule‑based CDS\*\*: deterministic, threshold‑based logic  
 
-# \- \*\*LLM‑generated explanation\*\*: Gemini, using a controlled prompt  
+#-*\*LLM‑generated explanation\*\*: Gemini, using a controlled prompt  
 
 # 
 
-# \### 3. Evaluation Dimensions
+#### 3. Evaluation Dimensions
 
 # Each explanation is scored on:
 
 # 
 
-# \- number of conditions mentioned  
+#- number of conditions mentioned  
 
-# \- associative language strength  
+#- associative language strength  
 
-# \- certainty language  
+#- certainty language  
 
-# \- implied clinical significance  
+#- implied clinical significance  
 
-# \- narrative breadth  
+#- narrative breadth  
 
 # 
 
-# \### 4. Reproducible Prompting
+#### 4. Reproducible Prompting
 
 # All LLM prompts are:
 
 # 
 
-# \- fixed  
+#- fixed  
 
-# \- version‑controlled  
+#- version‑controlled  
 
-# \- executed with temperature = 0.0 when possible  
+#- executed with temperature = 0.0 when possible  
 
-# \- logged for reproducibility  
+#- logged for reproducibility  
 
 # 
 
-# \### 5. Output Comparison
+#### 5. Output Comparison
 
 # Outputs are compared qualitatively and quantitatively to identify framing differences.
 
@@ -150,19 +150,19 @@
 
 # 
 
-# \## Planned Deliverables
+### Planned Deliverables
 
 # 
 
-# \- A dataset of lab‑only scenarios  
+#- A dataset of lab‑only scenarios  
 
-# \- A reproducible Gemini prompt suite  
+#- A reproducible Gemini prompt suite  
 
-# \- A comparison table of rule‑based vs. LLM explanations  
+#- A comparison table of rule‑based vs. LLM explanations  
 
-# \- A write‑up summarizing framing differences  
+#- A write‑up summarizing framing differences  
 
-# \- A LinkedIn article series documenting findings  
+#- A LinkedIn article series documenting findings  
 
 # 
 
@@ -170,7 +170,7 @@
 
 # 
 
-# \## Repository Structure (Proposed)
+### Repository Structure (Proposed)
 
 # 
 
