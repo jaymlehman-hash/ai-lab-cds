@@ -86,3 +86,23 @@ Outputs are compared qualitatively and quantitatively to identify framing differ
 
 ## Repository Structure (Proposed)
 
+/experiments
+/prompts
+/outputs
+/rule_based
+/gemini
+/data
+labs.csv
+/results
+comparison_tables/
+narrative_analysis/
+/docs
+methodology.md
+findings.md
+README.md
+
+---
+
+## About the Author
+
+My name is Jason Lehman.  I work at the intersection of clinical informatics, cloud architecture, and applied AI. This project reflects ongoing research into how generative models behave inside real healthcare systems — and how DevOps teams can design, monitor, and govern them responsibly.
