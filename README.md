@@ -14,7 +14,7 @@
 
 # 
 
-#*\*Do LLM‑generated explanations subtly broaden or reframe associations with comorbid conditions compared to traditional rule‑based clinical decision support?\*\*
+#**Do LLM‑generated explanations subtly broaden or reframe associations with comorbid conditions compared to traditional rule‑based clinical decision support?**
 
 # 
 
@@ -40,7 +40,7 @@
 
 #- LLM outputs become part of the safety surface  
 
-#- DevOps teams must monitor not just accuracy, but*language\*  
+#- DevOps teams must monitor not just accuracy, but*language*  
 
 # 
 
@@ -66,21 +66,21 @@
 
 # 
 
-#-*\*breadth of associated conditions\*\*  
+#-**breadth of associated conditions**  
 
-#-*\*strength of associative or causal language\*\*  
+#-**strength of associative or causal language**  
 
-#-*\*certainty framing\*\*  
+#-**certainty framing**  
 
-#-*\*implied clinical significance\*\*  
+#-**implied clinical significance**  
 
-#-*\*narrative expansion beyond guideline‑encoded rules\*\*
+#-**narrative expansion beyond guideline‑encoded rules**
 
 # 
 
-# This work does*not\* evaluate clinical correctness or provide medical advice.  
+# This work does*not* evaluate clinical correctness or provide medical advice.  
 
-# It evaluates*\*framing behavior\*\*.
+# It evaluates**framing behavior**.
 
 # 
 
@@ -100,9 +100,9 @@
 
 #### 2. Two Explanation Sources
 
-#-*\*Rule‑based CDS\*\*: deterministic, threshold‑based logic  
+#-**Rule‑based CDS**: deterministic, threshold‑based logic  
 
-#-*\*LLM‑generated explanation\*\*: Gemini, using a controlled prompt  
+#-**LLM‑generated explanation**: Gemini, using a controlled prompt  
 
 # 
 
