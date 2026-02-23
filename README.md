@@ -2,11 +2,11 @@
 
 ## Overview
 
-This project explores how large language models (LLMs) — such as Gemini — frame clinical meaning when explaining abnormal laboratory results. Traditional electronic health record (EHR) systems rely on deterministic, rule‑based logic to interpret labs. LLMs, by contrast, generate narrative explanations based on patterns learned from medical text.
+This project explores how large language models (LLMs), such as Gemini, frame clinical meaning when explaining abnormal laboratory results. Traditional electronic health record (EHR) systems rely on deterministic, rule‑based logic to interpret labs. LLMs, by contrast, generate narrative explanations based on patterns learned from medical text.
 
 This shift introduces a new question:
 
-**Do LLM‑generated explanations subtly broaden or reframe associations with comorbid conditions compared to traditional rule‑based clinical decision support?**
+**Do LLM generated explanations subtly broaden or reframe associations with comorbid conditions compared to traditional rule‑based clinical decision support?**
 
 This repository documents a structured, reproducible set of experiments to answer that question.
 
@@ -84,7 +84,7 @@ Outputs are compared qualitatively and quantitatively to identify framing differ
 
 ---
 
-## Repository Structure (Proposed)
+## Repository Structure
 
 /experiments
 /prompts
