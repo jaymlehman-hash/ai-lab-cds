@@ -27,8 +27,8 @@ This study evaluates **model behavior**, not clinical correctness.
 ## 3. Conceptual Workflow
 ```mermaid
 flowchart TD
-    A[Abnormal Lab Panel<br/>(Multiple Abnormal Values)] --> B[Standard Rule-Based CDS]
-    A --> C["LLM (Multi-Lab Reasoning, temp=0)"]
+    A["Abnormal Lab Panel (Multiple Abnormal Values)"] --> B[Standard Rule-Based CDS]
+    A --> C["LLM Multi-Lab Reasoning (temp=0)"]
     B --> D[Per-Lab Explanations]
     C --> E[Integrated Multi-Lab Narrative]
     D --> F[Comparison Framework]
@@ -70,12 +70,12 @@ This isolates the model’s internal reasoning.
 
 ### 5.1 Lab Panel Scenarios
 Panels include abnormalities across:
-- Metabolic
-- Renal
-- Hepatic
-- Hematologic
-- Endocrine
-- Cardiovascular markers
+- Metabolic  
+- Renal  
+- Hepatic  
+- Hematologic  
+- Endocrine  
+- Cardiovascular markers  
 
 Examples:
 - High iron + high uric acid + hypertension  
@@ -210,10 +210,10 @@ Any prompt modification requires:
 “The combination of elevated iron, elevated uric acid, and hypertension may indicate a shared metabolic or renal process. Iron overload and impaired renal function can both contribute to elevated uric acid levels, and chronic metabolic or renal disease can be associated with hypertension. While these findings do not confirm a specific diagnosis, they are more likely related than isolated.”
 
 ### Observed Differences
-- Standard CDS treats each abnormality independently.
-- LLM integrates abnormalities into a shared narrative.
-- LLM identifies potential correlations.
-- Risk of speculative causal chains must be evaluated.
+- Standard CDS treats each abnormality independently.  
+- LLM integrates abnormalities into a shared narrative.  
+- LLM identifies potential correlations.  
+- Risk of speculative causal chains must be evaluated.  
 
 ---
 
