@@ -15,7 +15,7 @@ The study does not evaluate clinical correctness. It evaluates model behavior, n
 ```mermaid
 flowchart TD
     A[Abnormal Lab Value] --> B[Rule-Based CDS Engine]
-    A --> C[LLM (Gemini, temp=0)]
+    A --> C["LLM (Gemini, temp=0)"]
     B --> D[Paired Explanations]
     C --> D
     D --> E[Scoring Framework]
