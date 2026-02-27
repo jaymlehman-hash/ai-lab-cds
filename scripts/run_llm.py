@@ -5,8 +5,7 @@ import json
 import requests
 from requests.exceptions import HTTPError
 
-#API_KEY = os.environ["GEMINI_API_KEY"]
-API_KEY = "AIzaSyD7Jj3wciNAB4rwL6SjE0q8Ze30fu8G1mA"
+API_KEY = os.environ["GEMINI_API_KEY"]
 MODEL_NAME = "gemini-2.0-flash"
 OUTPUT_DIR = "outputs/llm/gemini_v1"
 
