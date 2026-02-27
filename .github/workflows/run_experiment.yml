@@ -29,6 +29,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Create output directory
+        run: mkdir -p outputs/llm/gemini_v1
+
       - name: Run LLM experiment harness
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
