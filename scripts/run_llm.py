@@ -3,8 +3,9 @@ import os
 import json
 import requests
 
-API_KEY = os.environ["GEMINI_API_KEY"]
-MODEL_NAME = "gemini-1.5-flash"
+#API_KEY = os.environ["GEMINI_API_KEY"]
+API_KEY = "AIzaSyD7Jj3wciNAB4rwL6SjE0q8Ze30fu8G1mA" # curl "https://generativelanguage.googleapis.com/v1/models?key=AIzaSyD7Jj3wciNAB4rwL6SjE0q8Ze30fu8G1mA"
+MODEL_NAME = "gemini-2.5-flash"
 OUTPUT_DIR = "outputs/llm/gemini_v1"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
