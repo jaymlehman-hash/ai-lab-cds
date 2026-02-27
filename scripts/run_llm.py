@@ -1,12 +1,13 @@
 import csv
 import os
-from datetime import datetime
-import google.generativeai as genai   # llm
+import json
+import requests
 
-#genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+API_KEY = os.environ["GEMINI_API_KEY"]
+MODEL_NAME = "gemini-1.5-pro"   # now allowed!
+OUTPUT_DIR = "outputs/llm/gemini_v1"
 
-genai.configure( api_key=os.environ["GEMINI_API_KEY"], transport="rest" )
-MODEL_NAME = "gemini-1.0-pro"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 PROMPT_TEMPLATE = """You are a clinical decision support system.
 You are given multiple abnormal laboratory values from the same patient.
@@ -23,15 +24,9 @@ Abnormal labs:
 {lab_block}
 """
 
-# If you're curious about temperature 0.0, look it up.  0.0 means the model always picks the highest‑probability next token which I want
-
-OUTPUT_DIR = "outputs/llm/gemini_v1"
-
-os.makedirs(OUTPUT_DIR, exist_ok=True)
-
 def build_lab_block(row):
     labs = []
-    for i in range(1, 10):  # supports up to 3 labs (lab_name_1, lab_name_2, lab_name_3)
+    for i in range(1, 10):
         name = row.get(f"lab_name_{i}")
         if not name:
             break
@@ -41,18 +36,29 @@ def build_lab_block(row):
         labs.append(f"- {name}: {value} {units} (reference {ref})")
     return "\n".join(labs)
 
-def run_panel(panel_row):
-    panel_id = panel_row["panel_id"]
-    lab_block = build_lab_block(panel_row)
+def call_gemini(prompt):
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL_NAME}:generateContent?key={API_KEY}"
+    payload = {
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {"temperature": 0.0}
+    }
+    response = requests.post(url, json=payload)
+    response.raise_for_status()
+    data = response.json()
+    return data["candidates"][0]["content"]["parts"][0]["text"]
+
+def run_panel(row):
+    panel_id = row["panel_id"]
+    lab_block = build_lab_block(row)
     prompt = PROMPT_TEMPLATE.format(lab_block=lab_block)
 
-    response = genai.GenerativeModel(MODEL_NAME).generate_content(prompt)
+    output = call_gemini(prompt)
 
-    output_path = os.path.join(OUTPUT_DIR, f"{panel_id}_llm.txt")
-    with open(output_path, "w") as f:
-        f.write(response.text)
+    out_path = os.path.join(OUTPUT_DIR, f"{panel_id}_llm.txt")
+    with open(out_path, "w") as f:
+        f.write(output)
 
-    print(f"Saved: {output_path}")
+    print(f"Saved: {out_path}")
 
 def main():
     with open("data/panels.csv") as f:
