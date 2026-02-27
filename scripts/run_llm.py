@@ -4,7 +4,7 @@ import json
 import requests
 
 API_KEY = os.environ["GEMINI_API_KEY"]
-MODEL_NAME = "gemini-1.5-pro"
+MODEL_NAME = "gemini-1.5-flash"
 OUTPUT_DIR = "outputs/llm/gemini_v1"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -30,9 +30,9 @@ def build_lab_block(row):
         name = row.get(f"lab_name_{i}")
         if not name:
             break
-        value = row[f"value_{i}"]
-        units = row[f"units_{i}"]
-        ref = row[f"ref_range_{i}"]
+        value = row.get(f"value_{i}", "")
+        units = row.get(f"units_{i}", "")
+        ref = row.get(f"ref_range_{i}", "")
         labs.append(f"- {name}: {value} {units} (reference {ref})")
     return "\n".join(labs)
 
