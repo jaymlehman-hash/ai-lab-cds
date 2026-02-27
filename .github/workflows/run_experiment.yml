@@ -1,0 +1,51 @@
+name: Run LLM Experiment
+
+on:
+  workflow_dispatch:        # allows manual runs
+  push:
+    paths:
+      - "data/panels.csv"
+      - "prompts/**"
+      - "scripts/run_llm.py"
+      - ".github/workflows/run_experiment.yml"
+
+jobs:
+  run-experiment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run LLM experiment harness
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python scripts/run_llm.py
+
+      - name: Upload LLM outputs as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: llm_outputs
+          path: outputs/llm/gemini_v1/
+
+      # OPTIONAL: auto-commit updated outputs back to repo
+      # Uncomment if you want outputs committed automatically
+      #
+       - name: Commit and push results
+         run: |
+           git config --global user.name "github-actions"
+           git config --global user.email "actions@github.com"
+           git add outputs/llm/gemini_v1/*
+           git commit -m "Update LLM outputs [skip ci]" || echo "No changes to commit"
+           git push
