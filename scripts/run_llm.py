@@ -3,7 +3,10 @@ import os
 from datetime import datetime
 import google.generativeai as genai   # llm
 
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+#genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+
+genai.configure( api_key=os.environ["GEMINI_API_KEY"], transport="rest" )
+MODEL_NAME = "gemini-1.0-pro"
 
 PROMPT_TEMPLATE = """You are a clinical decision support system.
 You are given multiple abnormal laboratory values from the same patient.
@@ -21,8 +24,6 @@ Abnormal labs:
 """
 
 # If you're curious about temperature 0.0, look it up.  0.0 means the model always picks the highest‑probability next token which I want
-
-MODEL_NAME = "gemini-1.0-pro"
 
 OUTPUT_DIR = "outputs/llm/gemini_v1"
 
