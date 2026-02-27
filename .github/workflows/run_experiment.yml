@@ -1,7 +1,7 @@
 name: Run LLM Experiment
 
 on:
-  workflow_dispatch:        # allows manual runs
+  workflow_dispatch:
   push:
     paths:
       - "data/panels.csv"
@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -39,13 +41,10 @@ jobs:
           name: llm_outputs
           path: outputs/llm/gemini_v1/
 
-      # OPTIONAL: auto-commit updated outputs back to repo
-      # Uncomment if you want outputs committed automatically
-      #
-       - name: Commit and push results
-         run: |
-           git config --global user.name "github-actions"
-           git config --global user.email "actions@github.com"
-           git add outputs/llm/gemini_v1/*
-           git commit -m "Update LLM outputs [skip ci]" || echo "No changes to commit"
-           git push
+      - name: Commit and push updated LLM outputs
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add outputs/llm/gemini_v1/*
+          git commit -m "Update LLM outputs [skip ci]" || echo "No changes to commit"
+          git push
