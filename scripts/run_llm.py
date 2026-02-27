@@ -3,6 +3,8 @@ import os
 from datetime import datetime
 import google.generativeai as genai   # llm
 
+genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+
 PROMPT_TEMPLATE = """You are a clinical decision support system.
 You are given multiple abnormal laboratory values from the same patient.
 
