@@ -39,11 +39,23 @@ def build_lab_block(row):
 def call_gemini(prompt):
     url = f"https://generativelanguage.googleapis.com/v1/models/{MODEL_NAME}:generateContent?key={API_KEY}"
     payload = {
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.0}
+        "contents": [
+            {
+                "parts": [
+                    {"text": prompt}
+                ]
+            }
+        ],
+        "generationConfig": {
+            "temperature": 0.0
+        }
     }
+
     response = requests.post(url, json=payload)
+    if response.status_code != 200:
+        print("ERROR RESPONSE:", response.text)
     response.raise_for_status()
+
     data = response.json()
     return data["candidates"][0]["content"]["parts"][0]["text"]
 
