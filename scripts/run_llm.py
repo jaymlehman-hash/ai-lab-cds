@@ -1,12 +1,18 @@
 import csv
 import os
+import time
 import json
 import requests
+from requests.exceptions import HTTPError
 
-#API_KEY = os.environ["GEMINI_API_KEY"]
-API_KEY = "AIzaSyD7Jj3wciNAB4rwL6SjE0q8Ze30fu8G1mA" # curl "https://generativelanguage.googleapis.com/v1/models?key=AIzaSyD7Jj3wciNAB4rwL6SjE0q8Ze30fu8G1mA"
-MODEL_NAME = "gemini-2.5-flash"
+API_KEY = os.environ["GEMINI_API_KEY"]
+MODEL_NAME = "gemini-2.0-flash"
 OUTPUT_DIR = "outputs/llm/gemini_v1"
+
+# Rate limiting settings
+REQUEST_DELAY = 1.5          # seconds between requests (prevents RPM throttling)
+MAX_RETRIES = 5              # retry attempts for 429/500 errors
+BACKOFF_FACTOR = 2           # exponential backoff multiplier
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -41,43 +47,20 @@ def call_gemini(prompt):
     url = f"https://generativelanguage.googleapis.com/v1/models/{MODEL_NAME}:generateContent?key={API_KEY}"
     payload = {
         "contents": [
-            {
-                "parts": [
-                    {"text": prompt}
-                ]
-            }
+            {"parts": [{"text": prompt}]}
         ],
-        "generationConfig": {
-            "temperature": 0.0
-        }
+        "generationConfig": {"temperature": 0.0}
     }
 
-    response = requests.post(url, json=payload)
-    if response.status_code != 200:
-        print("ERROR RESPONSE:", response.text)
-    response.raise_for_status()
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            response = requests.post(url, json=payload)
+            if response.status_code != 200:
+                print(f"ERROR RESPONSE (attempt {attempt}): {response.text}")
 
-    data = response.json()
-    return data["candidates"][0]["content"]["parts"][0]["text"]
+            response.raise_for_status()
+            data = response.json()
+            return data["candidates"][0]["content"]["parts"][0]["text"]
 
-def run_panel(row):
-    panel_id = row["panel_id"]
-    lab_block = build_lab_block(row)
-    prompt = PROMPT_TEMPLATE.format(lab_block=lab_block)
-
-    output = call_gemini(prompt)
-
-    out_path = os.path.join(OUTPUT_DIR, f"{panel_id}_llm.txt")
-    with open(out_path, "w") as f:
-        f.write(output)
-
-    print(f"Saved: {out_path}")
-
-def main():
-    with open("data/panels.csv") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            run_panel(row)
-
-if __name__ == "__main__":
-    main()
+        except HTTPError as e:
+            status = response.status
