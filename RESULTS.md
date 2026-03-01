@@ -1,6 +1,6 @@
 # Results
 
-This study evaluated the clinical reasoning performance of **Gemini 2.0 Flash** on a curated set of nine multi‑lab panels. Each panel contained three abnormal laboratory values spanning metabolic, renal, hepatic, endocrine, hematologic, or cardiovascular domains. The model was assessed using a structured scoring rubric measuring correctness, completeness, relationship detection, relationship accuracy, narrative drift, certainty language, mechanistic depth, and structural adherence.
+This study evaluated the clinical reasoning performance of **Gemini 2.X Flash** on a curated set of nine multi‑lab panels. Each panel contained three abnormal laboratory values spanning metabolic, renal, hepatic, endocrine, hematologic, or cardiovascular domains. The model was assessed using a structured scoring rubric measuring correctness, completeness, relationship detection, relationship accuracy, narrative drift, certainty language, mechanistic depth, and structural adherence.
 
 All results were generated using a fully reproducible pipeline, including automated LLM generation, rubric‑based scoring, dataset merging, and analysis notebooks.
 
