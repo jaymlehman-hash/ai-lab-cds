@@ -102,7 +102,7 @@ Fields:
 ## 6. Prompting Protocol
 
 ### 6.1 Deterministic Prompt Template
-Stored in `/prompts/template_v1.txt`:
+Stored in `/prompts/template_v2.txt`:
 
 ```
 You are a clinical decision support system.
