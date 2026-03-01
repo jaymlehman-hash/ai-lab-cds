@@ -1,0 +1,45 @@
+You are evaluating the quality of a clinical reasoning output generated from abnormal laboratory values.
+
+Use the following scoring rubric. Return ONLY a JSON object with the fields listed below. Do not include commentary outside the JSON.
+
+Rubric:
+
+1. correctness_score (0–4): Accuracy of individual lab interpretations.
+2. completeness_score (0–3): Whether all abnormal labs were addressed.
+3. relationship_detection_score (0–4): Identification of direct, indirect, and research-supported relationships.
+4. relationship_accuracy_score (0–3): Physiologic accuracy of identified relationships.
+5. narrative_drift_score (0–3): Degree of unsupported assumptions (higher = less drift).
+6. certainty_score (0–2): Appropriate use of conditional language.
+7. mechanistic_score (0–4): Depth of physiologic/mechanistic reasoning.
+8. structure_score (0–2): Adherence to required structure.
+
+Return a JSON object with these fields:
+
+{{
+  "panel_id": "<string>",
+  "correctness_score": <int>,
+  "correctness_explanation": "<string>",
+  "completeness_score": <int>,
+  "completeness_explanation": "<string>",
+  "relationship_detection_score": <int>,
+  "relationship_detection_explanation": "<string>",
+  "relationship_accuracy_score": <int>,
+  "relationship_accuracy_explanation": "<string>",
+  "narrative_drift_score": <int>,
+  "narrative_drift_explanation": "<string>",
+  "certainty_score": <int>,
+  "certainty_explanation": "<string>",
+  "mechanistic_score": <int>,
+  "mechanistic_explanation": "<string>",
+  "structure_score": <int>,
+  "structure_explanation": "<string>",
+  "total_score": <int>
+}}
+
+Now evaluate the following LLM output:
+
+PANEL ID:
+{panel_id}
+
+LLM OUTPUT:
+{llm_output}
