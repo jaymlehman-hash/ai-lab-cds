@@ -8,14 +8,21 @@ The goal is to provide a lightweight, accessible framework for studying how LLMs
 
 ## Project Structure
 
+ai-lab-cds/
 ├── data/
 │   └── panels.csv
 │
 ├── outputs/
 │   ├── cds/
+│   │   └── <panel_id>_cds.txt
+│   │
 │   ├── llm/
 │   │   └── gemini_v1/
+│   │       └── <panel_id>_llm.txt
+│   │
 │   ├── scoring/
+│   │   └── <panel_id>_score.json
+│   │
 │   └── dataset/
 │       └── merged_dataset.csv
 │
