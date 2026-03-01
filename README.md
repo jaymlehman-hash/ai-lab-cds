@@ -171,7 +171,7 @@ Any prompt modification requires:
 ### 7.2 LLM Outputs
 ```
 /outputs/llm/
-  panel_id_gemini_v1.txt
+  panel_id_gemini_v2.txt
 ```
 
 ### 7.3 Reproducibility Requirements
