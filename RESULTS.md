@@ -8,7 +8,7 @@ All results were generated using a fully reproducible pipeline, including automa
 
 ## Overall Performance
 
-Across all nine panels, Gemini 2.0 Flash demonstrated **consistently high performance**. Every panel achieved the maximum total score of **25/25**, with perfect or near‑perfect scores in all rubric dimensions.
+Across all nine panels, Gemini 2.X Flash demonstrated **consistently high performance**. Every panel achieved the maximum total score of **25/25**, with perfect or near‑perfect scores in all rubric dimensions.
 
 ### Summary of scoring outcomes
 
@@ -24,7 +24,7 @@ Across all nine panels, Gemini 2.0 Flash demonstrated **consistently high perfor
 | Structure Adherence | 2 | 2.0 | 0.0 | Perfect compliance with required output format |
 | **Total Score** | **25** | **25.0** | **0.0** | Consistent high‑quality reasoning |
 
-These results indicate that, for the curated panel set used in this study, Gemini 2.0 Flash produced **accurate, structured, and mechanistically grounded clinical reasoning** with minimal drift.
+These results indicate that, for the curated panel set used in this study, Gemini 2.X Flash produced **accurate, structured, and mechanistically grounded clinical reasoning** with minimal drift.
 
 ---
 
