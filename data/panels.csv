@@ -8,5 +8,3 @@ P006,Potassium,2.9,mmol/L,3.5-5.1,Electrolyte,Magnesium,1.4,mg/dL,1.7-2.2,Electr
 P007,WBC,15.2,K/uL,4.0-11.0,Hematologic,Neutrophils,82,%,40-60,Hematologic,Lactate,3.8,mmol/L,0.5-2.2,Metabolic
 P008,Platelets,92,K/uL,150-450,Hematologic,INR,1.9,,0.8-1.2,Coagulation,Albumin,2.8,g/dL,3.5-5.0,Hepatic
 P009,CK,980,U/L,20-200,Muscle,Creatinine,1.9,mg/dL,0.6-1.3,Renal,Potassium,5.8,mmol/L,3.5-5.1,Electrolyte
-P010,ESR,48,mm/hr,<20,Inflammatory,CRP,22,mg/L,<3,Inflammatory,Hemoglobin,10.8,g/dL,13.5-17.5,Hematologic
-
