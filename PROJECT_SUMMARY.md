@@ -7,7 +7,7 @@ The goal is to provide a lightweight, accessible framework for studying how LLMs
 ---
 
 ## Project Structure
-
+```
 ai-lab-cds/
 ├── data
 │   └── panels.csv
@@ -34,7 +34,7 @@ ai-lab-cds/
 ├── METHODS.md
 ├── RESULTS.md
 └── README.md
-
+```
 ---
 
 ## Overview of the Pipeline
