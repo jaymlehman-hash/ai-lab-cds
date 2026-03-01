@@ -17,7 +17,7 @@ ai-lab-cds/
 │   │   └── <panel_id>_cds.txt
 │   │
 │   ├── llm
-│   │   └── gemini_v1
+│   │   └── gemini_v2
 │   │       └── <panel_id>_llm.txt
 │   │
 │   ├── scoring
