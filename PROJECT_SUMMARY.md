@@ -9,24 +9,24 @@ The goal is to provide a lightweight, accessible framework for studying how LLMs
 ## Project Structure
 
 ai-lab-cds/
-├── data/
+├── data
 │   └── panels.csv
 │
-├── outputs/
-│   ├── cds/
+├── outputs
+│   ├── cds
 │   │   └── <panel_id>_cds.txt
 │   │
-│   ├── llm/
-│   │   └── gemini_v1/
+│   ├── llm
+│   │   └── gemini_v1
 │   │       └── <panel_id>_llm.txt
 │   │
-│   ├── scoring/
+│   ├── scoring
 │   │   └── <panel_id>_score.json
 │   │
-│   └── dataset/
+│   └── dataset
 │       └── merged_dataset.csv
 │
-├── notebooks/
+├── notebooks
 │   ├── analysis.ipynb
 │   ├── analysis_stats.ipynb
 │   └── analysis_visuals.ipynb
