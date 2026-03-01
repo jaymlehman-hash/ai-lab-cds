@@ -7,12 +7,10 @@ from requests.exceptions import HTTPError
 
 API_KEY = os.environ["GEMINI_API_KEY"]
 MODEL_NAME = "gemini-2.0-flash"
-OUTPUT_DIR = "outputs/llm/gemini_v1"
+OUTPUT_DIR = "outputs/llm/gemini_v2"
 
-# Rate limiting settings
-REQUEST_DELAY = 1.5          # seconds between requests (prevents RPM throttling)
-MAX_RETRIES = 5              # retry attempts for 429/500 errors
-BACKOFF_FACTOR = 2           # exponential backoff multiplier
+# Simple rate limiting (no retries)
+REQUEST_DELAY = 1.5  # seconds between requests
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -79,41 +77,22 @@ def build_lab_block(row):
 def call_gemini(prompt):
     url = f"https://generativelanguage.googleapis.com/v1/models/{MODEL_NAME}:generateContent?key={API_KEY}"
     payload = {
-        "contents": [
-            {"parts": [{"text": prompt}]}
-        ],
+        "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"temperature": 0.0}
     }
 
-    for attempt in range(1, MAX_RETRIES + 1):
-        try:
-            response = requests.post(url, json=payload)
-            if response.status_code != 200:
-                print(f"ERROR RESPONSE (attempt {attempt}): {response.text}")
+    try:
+        response = requests.post(url, json=payload)
+        if response.status_code != 200:
+            print(f"ERROR RESPONSE: {response.text}")
+            exit(0)
 
-            response.raise_for_status()
-            data = response.json()
-            return data["candidates"][0]["content"]["parts"][0]["text"]
+        response.raise_for_status()
+        data = response.json()
+        return data["candidates"][0]["content"]["parts"][0]["text"]
 
-        except HTTPError as e:
-            status = response.status_code
-
-            # Retry only on quota or transient errors
-            if status in (429, 500, 502, 503, 504):
-                sleep_time = BACKOFF_FACTOR ** attempt
-                print(f"Retryable error {status}. Sleeping {sleep_time}s before retry {attempt}/{MAX_RETRIES}...")
-                time.sleep(sleep_time)
-                continue
-
-            # Non-retryable error
-            print(f"Non-retryable error {status}: {response.text}")
-            return f"ERROR: {response.text}"
-
-        except Exception as e:
-            print(f"Unexpected error: {e}")
-            return f"ERROR: {e}"
-
-    return "ERROR: Max retries exceeded."
+    except Exception as e:
+        return f"ERROR: {e}"
 
 def run_panel(row):
     panel_id = row["panel_id"]
@@ -128,7 +107,7 @@ def run_panel(row):
         f.write(output)
 
     print(f"Saved: {out_path}")
-    time.sleep(REQUEST_DELAY)  # rate limiting
+    time.sleep(REQUEST_DELAY)
 
 def main():
     with open("data/panels.csv") as f:

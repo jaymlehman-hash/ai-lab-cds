@@ -42,7 +42,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: llm_outputs
-          path: outputs/llm/gemini_v1/
+          path: outputs/llm/gemini_v2/
 
       - name: Commit and push updated LLM outputs
         run: |
