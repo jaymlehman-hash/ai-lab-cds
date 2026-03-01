@@ -1,0 +1,3 @@
+Lactate: Elevated lactate may indicate impaired tissue oxygenation or increased metabolic demand.
+Neutrophils: Elevated neutrophil percentage may indicate bacterial infection or acute inflammation.
+WBC: Elevated WBC count may indicate infection, inflammation, or physiologic stress.

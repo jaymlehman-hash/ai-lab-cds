@@ -1,0 +1,3 @@
+BUN: Elevated BUN may indicate reduced kidney clearance, dehydration, or increased protein metabolism.
+Creatine: Elevated creatinine may indicate reduced kidney filtration or impaired renal function.
+eGFR: A reduced eGFR indicates decreased kidney filtration capacity.

@@ -1,0 +1,3 @@
+CRP: Elevated CRP indicates systemic inflammation.
+LDL: Elevated LDL is a cardiovascular risk factor and may indicate increased circulating low‑density lipoproteins.
+TSH: Elevated TSH may indicate reduced thyroid hormone production or primary hypothyroidism.

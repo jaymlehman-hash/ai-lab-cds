@@ -1,0 +1,3 @@
+Glucose: Elevated glucose is consistent with hyperglycemia and may indicate impaired glucose regulation.
+HDL: Low HDL is a risk factor for cardiovascular disease and indicates reduced protective lipoprotein levels.
+Triglycerides: Elevated triglycerides may indicate increased lipid production, impaired clearance, or metabolic imbalance.

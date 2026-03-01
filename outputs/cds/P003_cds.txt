@@ -1,0 +1,3 @@
+ALT: Elevated ALT suggests hepatocellular injury or inflammation.
+AST: Elevated AST may indicate liver injury, muscle injury, or cellular breakdown.”
+Bilirubin: Elevated bilirubin may indicate impaired bilirubin processing, bile flow obstruction, or increased red cell turnover.

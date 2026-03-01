@@ -1,0 +1,3 @@
+Albumin: Low albumin may indicate reduced protein synthesis, increased losses, or malnutrition.
+INR: Elevated INR may indicate reduced clotting factor activity or impaired coagulation.
+Platelets: Low platelet count may indicate decreased production, increased destruction, or sequestration.
