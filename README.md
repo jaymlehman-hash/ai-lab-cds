@@ -202,9 +202,9 @@ Any prompt modification requires:
 
 ### 8.3 Output Format
 ```
-/analysis/
+/outputs/
   panel_id_scores.json
-  panel_id_comparison.md
+
 ```
 
 ---
