@@ -336,3 +336,9 @@ ai-lab-cds/
 - Narrative analysis  
 - Reproducible experiment harness  
 - LinkedIn article series  
+
+## Licensing
+
+- Code is licensed under the MIT License (see `LICENSE`).
+- Documentation, prompts, rubrics, and diagrams are licensed under  
+  the Creative Commons Attribution 4.0 International License (see `LICENSE-CC-BY`).
